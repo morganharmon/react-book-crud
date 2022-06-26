@@ -6,7 +6,7 @@ import Home from './Home';
 import Create from './Create';
 import Items from './Items';
 import ItemDetail from './ItemDetail';
-import { signUp, signIn } from './services/fetch-utils';
+import { signUp, signIn, logout } from './services/fetch-utils';
 
 function App() {
   const [signInEmail, setSignInEmail] = useState('');
@@ -34,9 +34,21 @@ function App() {
       setError(e.message);
     }
   }
+  async function handleLogout() {
+    try {
+      await logout();
+      setUser('');
+    } catch (e) {
+      setError(e.message);
+    }
+    console.log(user);
+  }
 
   return (
     <BrowserRouter>
+      <nav>
+        <button onClick={handleLogout}>Log out</button>
+      </nav>
       <Switch>
         <Route exact path='/'>
           {
@@ -52,7 +64,11 @@ function App() {
           <ItemDetail />
         </Route>
         <Route exact path='/items'>
-          <Items />
+          {
+            user
+              ? <Items />
+              : <Redirect to='/' />
+          }
         </Route>
         <Route path='*'>
           <Redirect to='/' />

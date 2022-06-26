@@ -19,3 +19,11 @@ export async function signIn(signInEmail, signInPassword) {
     return user;
   }
 }
+
+export async function logout() {
+  const { error } = await client.auth.signOut();
+  if (error) {
+    console.error(error);
+    throw error;
+  }
+}
