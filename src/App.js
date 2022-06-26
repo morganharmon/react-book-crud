@@ -1,4 +1,5 @@
 import './App.css';
+import { useState } from 'react';
 import { BrowserRouter, Switch, Route, Link, Redirect } from 'react-router-dom';
 import { client } from './services/client';
 import Home from './Home';
@@ -7,11 +8,13 @@ import Items from './Items';
 import ItemDetail from './ItemDetail';
 
 function App() {
+  const [signInInput, setSignInInput] = useState('');
+  
   return (
     <BrowserRouter>
       <Switch>
         <Route exact path='/'>
-          <Home />
+          <Home signInInput={signInInput} setSignInInput={setSignInInput} />
         </Route>
         <Route path='/create'>
           <Create />
