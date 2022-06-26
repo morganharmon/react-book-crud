@@ -1,7 +1,7 @@
-export default function Login({ signInPassword, setSignInPassword, signInEmail, setSignInEmail, signUpEmail, setSignUpEmail, signUpPassword, setSignUpPassword }) {
+export default function Login({ signInPassword, setSignInPassword, signInEmail, setSignInEmail, signUpEmail, setSignUpEmail, signUpPassword, setSignUpPassword, signUpSubmit, signInSubmit }) {
   return (
     <div>
-      <form>
+      <form onSubmit={signUpSubmit}>
         <h3>Sign Up</h3>
         <label>
           Email: 
@@ -13,7 +13,7 @@ export default function Login({ signInPassword, setSignInPassword, signInEmail, 
         </label>
         <button>Submit</button>
       </form>
-      <form>
+      <form onSubmit={signInSubmit}>
         <h3>Sign In</h3>
         <label>
           Email: 
