@@ -8,14 +8,16 @@ import Items from './Items';
 import ItemDetail from './ItemDetail';
 
 function App() {
-  const [signInPassword, setSignInPassword] = useState('');
   const [signInEmail, setSignInEmail] = useState('');
+  const [signInPassword, setSignInPassword] = useState('');
+  const [signUpEmail, setSignUpEmail] = useState('');
+  const [signUpPassword, setSignUpPassword] = useState('');
 
   return (
     <BrowserRouter>
       <Switch>
         <Route exact path='/'>
-          <Home signInPassword={signInPassword} setSignInPassword={setSignInPassword} signInEmail={signInEmail} setSignInEmail={setSignInEmail} />
+          <Home signInPassword={signInPassword} setSignInPassword={setSignInPassword} signInEmail={signInEmail} setSignInEmail={setSignInEmail} signUpEmail={signUpEmail} setSignUpEmail={setSignUpEmail} signUpPassword={signUpPassword} setSignUpPassword={setSignUpPassword} />
         </Route>
         <Route path='/create'>
           <Create />

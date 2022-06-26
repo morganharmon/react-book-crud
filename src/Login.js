@@ -1,7 +1,20 @@
-export default function Login({ signInPassword, setSignInPassword, signInEmail, setSignInEmail }) {
+export default function Login({ signInPassword, setSignInPassword, signInEmail, setSignInEmail, signUpEmail, setSignUpEmail, signUpPassword, setSignUpPassword }) {
   return (
     <div>
       <form>
+        <h3>Sign Up</h3>
+        <label>
+          Email: 
+          <input value={signUpEmail} onChange={(e) => setSignUpEmail(e.target.value)} />
+        </label>
+        <label>
+          Password:
+          <input type='password' value={signUpPassword} onChange={(e) => setSignUpPassword(e.target.value)} />
+        </label>
+        <button>Submit</button>
+      </form>
+      <form>
+        <h3>Sign In</h3>
         <label>
           Email: 
           <input value={signInEmail} onChange={(e) => setSignInEmail(e.target.value)} />
@@ -10,6 +23,7 @@ export default function Login({ signInPassword, setSignInPassword, signInEmail, 
           Password:
           <input type='password' value={signInPassword} onChange={(e) => setSignInPassword(e.target.value)} />
         </label>
+        <button>Submit</button>
       </form>
     </div>
   );
