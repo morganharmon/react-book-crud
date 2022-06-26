@@ -1,10 +1,10 @@
 import Login from './Login';
 
-export default function Home({ signInInput, setSignInInput }) {
+export default function Home({ signInPassword, setSignInPassword, signInEmail, setSignInEmail }) {
   return (
     <div>
       Home page
-      <Login signInInput={signInInput} setSignInInput={setSignInInput} />
+      <Login signInPassword={signInPassword} setSignInPassword={setSignInPassword} signInEmail={signInEmail} setSignInEmail={setSignInEmail} />
     </div>
   );
 }
