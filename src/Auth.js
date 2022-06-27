@@ -1,4 +1,28 @@
-export default function Login({ signInPassword, setSignInPassword, signInEmail, setSignInEmail, signUpEmail, setSignUpEmail, signUpPassword, setSignUpPassword, signUpSubmit, signInSubmit }) {
+import { useState } from 'react';
+import { signUp, signIn } from './services/fetch-utils';
+
+export default function Auth({ setUser }) {
+  const [signInEmail, setSignInEmail] = useState('');
+  const [signInPassword, setSignInPassword] = useState('');
+  const [signUpEmail, setSignUpEmail] = useState('');
+  const [signUpPassword, setSignUpPassword] = useState('');
+  const [error, setError] = useState('');
+
+  async function signUpSubmit(e) {
+    e.preventDefault();
+    try {
+      const user = await signUp(signUpEmail, signUpPassword);
+      setUser(user);
+    } catch (e) {
+      setError(e.message);
+    }
+  }
+  async function signInSubmit(e) {
+    e.preventDefault();
+    const user = await signIn(signInEmail, signInPassword);
+    setUser(user);
+  }
+
   return (
     <div>
       <form onSubmit={signUpSubmit}>
