@@ -32,16 +32,16 @@ export default function ItemDetail() {
   }
 
   return (
-    <div>
-      Update this book
-      <form onSubmit={handleUpdate}>
+    <div className='update-div'>
+      <h3>Update this book</h3>
+      <form className='update-form' onSubmit={handleUpdate}>
         <label>Book title: 
           <input value={title} onChange={(e) => setTitle(e.target.value)}></input>
         </label>
         <label>Book author: 
           <input value={author} onChange={(e) => setAuthor(e.target.value)}></input>
         </label>
-        <button>Submit</button>
+        <button>Update book</button>
       </form>
       <button onClick={handleDelete}>Delete book</button>
     </div>

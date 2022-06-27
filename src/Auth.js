@@ -15,6 +15,7 @@ export default function Auth({ setUser }) {
       setUser(user);
     } catch (e) {
       setError(e.message);
+      return error;
     }
   }
   async function signInSubmit(e) {
@@ -24,7 +25,7 @@ export default function Auth({ setUser }) {
   }
 
   return (
-    <div>
+    <div className='auth'>
       <form onSubmit={signUpSubmit}>
         <h3>Sign Up</h3>
         <label>

@@ -18,16 +18,20 @@ function App() {
 
   return (
     <BrowserRouter>
+      <header>
+        <h1>Your Personal Book List</h1>
+      </header>
       <nav>
         <ul>
           <li>
             <Link to='/create'>Create new book</Link>
           </li>
           <li>
-            {
-              user && <button onClick={handleLogout}>Log out</button>
-            }
+            <Link to='/items'>List of your books</Link>
           </li>
+          {
+            user && <li><button onClick={handleLogout}>Log out</button></li>
+          }
         </ul>
       </nav>
       <Switch>
@@ -39,7 +43,11 @@ function App() {
           }
         </Route>
         <Route path='/create'>
-          <Create />
+          {
+            user
+              ? <Create />
+              : <Redirect to ='/' />
+          }
         </Route>
         <Route exact path='/items/:id'>
           <ItemDetail />

@@ -15,7 +15,7 @@ export default function Items() {
   }, []);
 
   return (
-    <div>
+    <div className='items'>
       {
         items.map((item, i) => <RenderItem key={item.title + i} item={item} />)
       }

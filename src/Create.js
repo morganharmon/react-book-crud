@@ -9,7 +9,7 @@ export default function Create() {
 
   async function submitBook(e) {
     e.preventDefault();
-    const book = await createBook({ title: titleInput, author: authorInput });
+    await createBook({ title: titleInput, author: authorInput });
     setTitleInput('');
     setAuthorInput('');
     push('/items');
