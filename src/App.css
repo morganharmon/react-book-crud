@@ -36,3 +36,65 @@
     transform: rotate(360deg);
   }
 }
+
+.items {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-image: url('./books.jpg');
+  background-size: contain;
+}
+
+.item {
+  background-color: grey;
+  padding-left: 10px;
+  padding-right: 10px;
+  border: solid 1px blue;
+}
+
+nav {
+  background-color: lightblue;
+}
+
+h1 {
+  text-align: center;
+}
+
+.auth {
+  background-image: url('./books.jpg');
+  background-size: contain;
+  text-align: center;
+  color: lightblue;
+}
+
+form h3 {
+  background-color: grey;
+  width: fit-content;
+  align-self: center;
+  border-radius: 8px;
+}
+
+h3 {
+  width: fit-content;
+  align-self: center;
+}
+
+.update-div {
+  display: flex;
+  flex-direction: column;
+
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+button {
+  width: fit-content;
+  align-self: center;
+}
+
+label {
+  align-self: center;
+}
