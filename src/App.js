@@ -19,9 +19,16 @@ function App() {
   return (
     <BrowserRouter>
       <nav>
-        {
-          user ? <button onClick={handleLogout}>Log out</button> : <></>
-        }
+        <ul>
+          <li>
+            <Link to='/create'>Create new book</Link>
+          </li>
+          <li>
+            {
+              user && <button onClick={handleLogout}>Log out</button>
+            }
+          </li>
+        </ul>
       </nav>
       <Switch>
         <Route exact path='/'>

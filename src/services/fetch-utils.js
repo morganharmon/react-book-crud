@@ -27,3 +27,9 @@ export async function logout() {
     throw error;
   }
 }
+
+export async function createBook(book) {
+  const { data, error } = await client.from('Books').insert(book).single();
+
+  return data;
+}
