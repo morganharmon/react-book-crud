@@ -33,3 +33,8 @@ export async function createBook(book) {
 
   return data;
 }
+
+export async function getBooks() {
+  const { data, error } = await client.from('Books').select('*');
+  return data;
+}

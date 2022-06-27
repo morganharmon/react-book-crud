@@ -12,7 +12,7 @@ export default function Create() {
     const book = await createBook({ title: titleInput, author: authorInput });
     setTitleInput('');
     setAuthorInput('');
-    push('/list');
+    push('/items');
   }
 
   return (
