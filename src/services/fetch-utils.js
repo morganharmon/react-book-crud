@@ -48,3 +48,8 @@ export async function updateBook(book, id) {
   const { data, error } = await client.from('Books').update(book).match({ id: id }).single();
   return data;
 }
+
+export async function deleteBook(id) {
+  const { data, error } = await client.from('Books').delete().match({ id: id }).single();
+  return data;
+}

@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useParams, useHistory } from 'react-router-dom';
-import { getBookById, updateBook } from './services/fetch-utils';
+import { deleteBook, getBookById, updateBook } from './services/fetch-utils';
 
 export default function ItemDetail() {
   const { id } = useParams();
@@ -25,9 +25,15 @@ export default function ItemDetail() {
     push('/items');
   }
 
+  async function handleDelete(e) {
+    e.preventDefault();
+    await deleteBook(id);
+    push('/items');
+  }
+
   return (
     <div>
-      Book #{ id }
+      Update this book
       <form onSubmit={handleUpdate}>
         <label>Book title: 
           <input value={title} onChange={(e) => setTitle(e.target.value)}></input>
@@ -37,6 +43,7 @@ export default function ItemDetail() {
         </label>
         <button>Submit</button>
       </form>
+      <button onClick={handleDelete}>Delete book</button>
     </div>
   );
 }
