@@ -38,3 +38,8 @@ export async function getBooks() {
   const { data, error } = await client.from('Books').select('*');
   return data;
 }
+
+export async function getBookById(id) {
+  const { data, error } = await client.from('Books').select().match({ id }).single();
+  return data;
+}
